@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AutoParts - Магазин автозапчастей</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Шапка сайта -->
+    <header>
+        <div class="container header-content">
+            <div class="logo">
+                <i class="fas fa-car"></i>
+                Auto<span>Parts</span>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#" class="nav-link active" data-section="main">Главная</a></li>
+                    <li><a href="#" class="nav-link" data-section="catalog">Каталог</a></li>
+                    <li><a href="#" class="nav-link" data-section="about">О нас</a></li>
+                    <li><a href="#" class="nav-link" data-section="contacts">Контакты</a></li>
+                    <li class="cart-icon" id="cartIcon">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="cart-count" id="cartCount">0</span>
+                    </li>
+                    <li class="user-menu">
+                        <div class="user-icon" id="userIcon">
+                            <i class="fas fa-user"></i>
+                            <span id="userText">Войти</span>
+                        </div>
+                        <div class="user-dropdown" id="userDropdown">
+                            <a href="#" data-section="login" class="dropdown-link">Войти</a>
+                            <a href="#" data-section="register" class="dropdown-link">Регистрация</a>
+                            <a href="#" data-section="profile" class="dropdown-link" id="profileLink">Личный кабинет</a>
+                            <a href="#" id="logoutLink">Выйти</a>
+                        </div>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Главная секция -->
+    <section id="main" class="section active">
+        <div class="container">
+            <div class="hero">
+                <h1>Автозапчасти для любых марок автомобилей</h1>
+                <p>Широкий выбор качественных автозапчастей по доступным ценам с доставкой по всей стране</p>
+                <a href="#" class="btn btn-large" id="catalogBtn">Перейти в каталог</a>
+            </div>
+            
+            <h2 class="section-title">Популярные товары</h2>
+            
+            <div class="products-grid" id="featuredProducts">
+                <!-- Популярные товары будут добавлены через JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Секция каталога -->
+    <section id="catalog" class="section">
+        <div class="container">
+            <h2 class="section-title">Каталог автозапчастей</h2>
+            
+            <div class="filters">
+                <div class="filter-group">
+                    <label for="category">Категория</label>
+                    <select id="category">
+                        <option value="all">Все категории</option>
+                        <option value="engine">Двигатель</option>
+                        <option value="brakes">Тормозная система</option>
+                        <option value="suspension">Подвеска</option>
+                        <option value="electrics">Электрика</option>
+                        <option value="transmission">Трансмиссия</option>
+                        <option value="body">Кузовные детали</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label for="brand">Марка автомобиля</label>
+                    <select id="brand">
+                        <option value="all">Все марки</option>
+                        <option value="toyota">Toyota</option>
+                        <option value="bmw">BMW</option>
+                        <option value="audi">Audi</option>
+                        <option value="volkswagen">Volkswagen</option>
+                        <option value="ford">Ford</option>
+                        <option value="mercedes">Mercedes</option>
+                        <option value="honda">Honda</option>
+                        <option value="nissan">Nissan</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label for="price">Цена, руб.</label>
+                    <div class="price-slider">
+                        <input type="range" id="price" min="0" max="50000" step="1000" value="50000">
+                    </div>
+                    <div class="price-inputs">
+                        <input type="number" id="minPrice" placeholder="0" min="0" max="50000" value="0">
+                        <span>-</span>
+                        <input type="number" id="maxPrice" placeholder="50000" min="0" max="50000" value="50000">
+                    </div>
+                </div>
+            </div>
+
+            <div class="products-grid" id="productsGrid">
+                <!-- Товары будут добавлены через JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Страница товара -->
+    <section id="product" class="section">
+        <div class="container">
+            <div class="product-detail" id="productDetail">
+                <!-- Информация о товаре будет добавлена через JavaScript -->
+            </div>
+            
+            <h2 class="section-title">Сопутствующие товары</h2>
+            
+            <div class="products-grid" id="relatedProducts">
+                <!-- Сопутствующие товары будут добавлены через JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Секция "О нас" -->
+    <section id="about" class="section">
+        <div class="container">
+            <h2 class="section-title">О нашей компании</h2>
+            
+            <div class="about-content">
+                <div class="about-text">
+                    <h2>AutoParts - надежный поставщик автозапчастей</h2>
+                    <p>Мы работаем на рынке автозапчастей уже более 10 лет, предоставляя нашим клиентам только качественные детали от проверенных производителей. Наша миссия - сделать ремонт и обслуживание автомобилей доступнее и проще для каждого.</p>
+                    <p>В нашем каталоге представлено более 5000 наименований запчастей для всех популярных марок автомобилей. Мы тщательно отбираем поставщиков и проверяем качество каждой детали, чтобы вы могли быть уверены в надежности своего автомобиля.</p>
+                    <p>Наши специалисты всегда готовы помочь вам с выбором запчастей и ответить на все технические вопросы. Мы ценим каждого клиента и стремимся к долгосрочному сотрудничеству.</p>
+                </div>
+                <div class="about-image">
+                    <img src="https://images.unsplash.com/photo-1563720223485-83be8bdedd06?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=80" alt="Наш магазин">
+                </div>
+            </div>
+            
+            <div class="features">
+                <div class="feature">
+                    <i class="fas fa-shield-alt"></i>
+                    <h3>Гарантия качества</h3>
+                    <p>Все товары проходят тщательную проверку перед продажей</p>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-truck"></i>
+                    <h3>Быстрая доставка</h3>
+                    <p>Доставляем заказы по всей стране в кратчайшие сроки</p>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-headset"></i>
+                    <h3>Поддержка 24/7</h3>
+                    <p>Наши специалисты всегда готовы ответить на ваши вопросы</p>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-dollar-sign"></i>
+                    <h3>Лучшие цены</h3>
+                    <p>Предлагаем конкурентные цены без посредников</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Секция "Контакты" -->
+    <section id="contacts" class="section">
+        <div class="container">
+            <h2 class="section-title">Наши контакты</h2>
+            
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3>Контактная информация</h3>
+                    <ul class="contact-details">
+                        <li>
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>г. Москва, ул. Автозапчастей, д. 1</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-phone"></i>
+                            <span>+7 (123) 456-78-90</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-envelope"></i>
+                            <span>info@autoparts.ru</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-clock"></i>
+                            <span>Пн-Пт: 9:00 - 20:00, Сб-Вс: 10:00 - 18:00</span>
+                        </li>
+                    </ul>
+                    
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-vk"></i></a>
+                        <a href="#"><i class="fab fa-telegram"></i></a>
+                        <a href="#"><i class="fab fa-whatsapp"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                
+                <div class="contact-form">
+                    <h3>Остались вопросы?</h3>
+                    <p>Заполните форму и наш специалист свяжется с вами в ближайшее время</p>
+                    
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="name">Ваше имя</label>
+                            <input type="text" id="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Сообщение</label>
+                            <textarea id="message" required></textarea>
+                        </div>
+                        <button type="submit" class="btn">Отправить сообщение</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Страница входа -->
+    <section id="login" class="section">
+        <div class="container">
+            <div class="auth-container">
+                <div class="auth-tabs">
+                    <div class="auth-tab active" data-tab="login">Вход</div>
+                    <div class="auth-tab" data-tab="register">Регистрация</div>
+                </div>
+                
+                <form class="auth-form active" id="loginForm">
+                    <div class="form-group">
+                        <label for="loginEmail">Email</label>
+                        <input type="email" id="loginEmail" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="loginPassword">Пароль</label>
+                        <input type="password" id="loginPassword" required>
+                    </div>
+                    <div class="form-footer">
+                        <button type="submit" class="btn">Войти</button>
+                    </div>
+                </form>
+                
+                <form class="auth-form" id="registerForm">
+                    <div class="form-group">
+                        <label for="registerName">Имя</label>
+                        <input type="text" id="registerName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="registerEmail">Email</label>
+                        <input type="email" id="registerEmail" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="registerPassword">Пароль</label>
+                        <input type="password" id="registerPassword" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="registerConfirmPassword">Подтвердите пароль</label>
+                        <input type="password" id="registerConfirmPassword" required>
+                    </div>
+                    <div class="form-footer">
+                        <button type="submit" class="btn">Зарегистрироваться</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Личный кабинет -->
+    <section id="profile" class="section">
+        <div class="container">
+            <div class="profile-header" id="profileHeader">
+                <div class="profile-avatar">
+                    <i class="fas fa-user"></i>
+                </div>
+                <div class="profile-info">
+                    <h2 id="userName">Имя пользователя</h2>
+                    <p id="userEmail">user@example.com</p>
+                </div>
+            </div>
+            
+            <h2 class="section-title">История заказов</h2>
+            
+            <div class="orders-history" id="ordersHistory">
+                <!-- Заказы будут добавлены через JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Модальное окно корзины -->
+    <div class="cart-modal" id="cartModal">
+        <div class="cart-content">
+            <div class="cart-header">
+                <h2>Ваша корзина</h2>
+                <button class="close-cart" id="closeCart">×</button>
+            </div>
+            
+            <div class="cart-items" id="cartItems">
+                <!-- Товары в корзине будут добавлены через JavaScript -->
+            </div>
+            
+            <div class="cart-summary">
+                <div class="summary-row">
+                    <span>Товары (<span id="itemsCount">0</span>)</span>
+                    <span id="subtotal">0 руб.</span>
+                </div>
+                <div class="summary-row">
+                    <span>Скидка</span>
+                    <span id="discount" style="color: #ff6b6b;">0 руб.</span>
+                </div>
+                <div class="summary-row">
+                    <span>Доставка</span>
+                    <span id="shipping">0 руб.</span>
+                </div>
+                <div class="summary-row total">
+                    <span>Итого:</span>
+                    <span id="cartTotal">0 руб.</span>
+                </div>
+                
+                <div class="discount-input">
+                    <input type="text" id="promoCode" placeholder="Введите промокод">
+                    <button class="btn" id="applyPromo">Применить</button>
+                </div>
+                
+                <button class="checkout-btn" id="checkoutBtn">Оформить заказ</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Подвал -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>О нас</h3>
+                    <p>Мы предлагаем качественные автозапчасти для всех популярных марок автомобилей уже более 10 лет.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Категории</h3>
+                    <ul>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Двигатель</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Тормозная система</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Подвеска</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Электрика</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Контакты</h3>
+                    <ul>
+                        <li><a href="#"><i class="fas fa-map-marker-alt"></i> г. Москва, ул. Автозапчастей, д. 1</a></li>
+                        <li><a href="#"><i class="fas fa-phone"></i> +7 (123) 456-78-90</a></li>
+                        <li><a href="#"><i class="fas fa-envelope"></i> info@autoparts.ru</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 AutoParts. Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+
+    
+
+<script src="script.js"></script>
+</body>
+</html>
